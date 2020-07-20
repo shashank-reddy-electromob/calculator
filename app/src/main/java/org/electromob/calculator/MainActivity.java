@@ -10,7 +10,7 @@ import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
 
-    private Button login;
+    private Button login,register;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -18,12 +18,19 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         login = findViewById(R.id.button);
+        register = findViewById(R.id.button2);
 
         login.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 startActivity(new Intent(getApplicationContext(),loginactivity.class));
-                Toast.makeText(getApplicationContext(),"welcome",Toast.LENGTH_LONG).show();
+            }
+        });
+
+        register.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(getApplicationContext(),registeractivity.class));
             }
         });
     }

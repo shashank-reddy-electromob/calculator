@@ -10,7 +10,6 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity android:name=".scientific_calculator1"></activity>
-        <activity android:name=".profile" />
         <activity android:name=".scientific_calculator" />
         <activity android:name=".password_reset" />
         <activity android:name=".otp" />
