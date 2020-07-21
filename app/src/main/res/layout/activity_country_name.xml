@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".countryName"
+    android:background="@drawable/countriesbackgrnd2">
+
+    <AutoCompleteTextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Search for country"
+        android:layout_margin="20dp"
+        android:id="@+id/countryname"
+        android:textColor="#000000"
+        android:textColorHint="#000000"
+        ></AutoCompleteTextView>
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="DONE"
+        android:id="@+id/done"
+        android:layout_below="@id/countryname"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:background="#00c1ce"
+        android:textColor="#ffffff"
+        ></Button>
+
+</RelativeLayout>
