@@ -23,12 +23,8 @@ public class loginactivity extends AppCompatActivity {
         forgot.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(getApplicationContext() ,otp.class));
+                startActivity(new Intent(getApplicationContext(),otp.class));
             }
         });
-
-        SpannableString content = new SpannableString("FORGOT PASSWORD?");
-        content.setSpan(new UnderlineSpan(),0,content.length(),0);
-        forgot.setText(content);
     }
 }
