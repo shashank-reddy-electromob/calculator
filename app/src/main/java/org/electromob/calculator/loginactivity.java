@@ -12,6 +12,7 @@ import android.widget.TextView;
 
 public class loginactivity extends AppCompatActivity {
 
+    private Button login;
     TextView forgot;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -24,6 +25,14 @@ public class loginactivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 startActivity(new Intent(getApplicationContext(),otp.class));
+            }
+        });
+
+        Button login = findViewById(R.id.loginButton);
+        login.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(getApplicationContext(),activity_main.class));
             }
         });
     }

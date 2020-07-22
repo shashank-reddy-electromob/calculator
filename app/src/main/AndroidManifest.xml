@@ -19,13 +19,15 @@
         <activity android:name=".unitActivity" />
         <activity android:name=".profileActivity" />
         <activity android:name=".countryName" />
-        <activity android:name=".currencyActivity" />
-        <activity android:name=".activity_main">
+        <activity android:name=".currencyActivity"/>
+        <activity android:name=".activity_welcome">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+        </activity>
+        <activity android:name=".activity_main">
         </activity>
     </application>
 
