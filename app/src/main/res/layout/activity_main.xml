@@ -22,7 +22,7 @@
         android:layout_marginTop="15dp"
         android:layout_marginEnd="15dp"
         android:layout_toRightOf="@id/menu"
-        android:text="CALC"
+        android:text="calC"
         android:textColor="@android:color/background_dark"
         android:textSize="40dp"
         android:textStyle="bold"></TextView>
@@ -38,8 +38,9 @@
             app:cardCornerRadius="5dp"
             app:cardBackgroundColor="#ededed"
             android:layout_width="wrap_content"
-            android:layout_height="120dp"
-            android:layout_marginLeft="90dp">
+            android:layout_height="130dp"
+            android:layout_marginLeft="90dp"
+            android:id="@+id/scancard">
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
@@ -60,7 +61,7 @@
                 <ImageView
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-
+                    android:src="@drawable/scan"
                     android:padding="15dp"></ImageView>
             </LinearLayout>
         </androidx.cardview.widget.CardView>
@@ -69,7 +70,8 @@
             app:cardCornerRadius="5dp"
             app:cardBackgroundColor="#a6a6a6"
             android:layout_width="match_parent"
-            android:layout_height="120dp">
+            android:layout_height="130dp"
+            android:id="@+id/calcicard">
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
@@ -97,7 +99,8 @@
             app:cardCornerRadius="5dp"
             app:cardBackgroundColor="#00c2cb"
             android:layout_width="match_parent"
-            android:layout_height="120dp">
+            android:layout_height="130dp"
+            android:id="@+id/currencycard">
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
@@ -116,7 +119,7 @@
                 <ImageView
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-
+                    android:src="@drawable/currency"
                     android:padding="15dp"></ImageView>
             </LinearLayout>
         </androidx.cardview.widget.CardView>
@@ -125,7 +128,8 @@
             app:cardCornerRadius="5dp"
             app:cardBackgroundColor="#ff914d"
             android:layout_width="match_parent"
-            android:layout_height="120dp">
+            android:layout_height="130dp"
+            android:id="@+id/unitcard">
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"

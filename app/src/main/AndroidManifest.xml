@@ -9,12 +9,17 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+        <activity android:name=".scanActivity"></activity>
         <activity android:name=".scientific_calculator1" />
         <activity android:name=".scientific_calculator" />
         <activity android:name=".password_reset" />
         <activity android:name=".otp" />
         <activity android:name=".registeractivity" />
         <activity android:name=".loginactivity" />
+        <activity android:name=".unitActivity" />
+        <activity android:name=".profileActivity" />
+        <activity android:name=".countryName" />
+        <activity android:name=".currencyActivity" />
         <activity android:name=".activity_main">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
