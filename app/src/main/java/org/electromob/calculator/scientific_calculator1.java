@@ -2,13 +2,15 @@ package org.electromob.calculator;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.text.Html;
+import android.view.View;
 import android.widget.Button;
 
 public class scientific_calculator1 extends AppCompatActivity {
 
-    Button pow,pow_y,sin,cos,tan;
+    Button pow,pow_y,sin,cos,tan,switchh;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,6 +31,14 @@ public class scientific_calculator1 extends AppCompatActivity {
 
         tan = findViewById(R.id.button35);
         tan.setText(Html.fromHtml("tan<sup>-1</sup>"));
+
+        switchh = findViewById(R.id.button6);
+        switchh.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(getApplicationContext(),scientific_calculator.class));
+            }
+        });
 
     }
 }
