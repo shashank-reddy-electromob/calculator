@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "878713247895",
+    "firebase_url": "https://calc-22121.firebaseio.com",
+    "project_id": "calc-22121",
+    "storage_bucket": "calc-22121.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:878713247895:android:5e835de72118cb178071d2",
+        "android_client_info": {
+          "package_name": "org.electromob.calculator"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "878713247895-89o978kta7qqrfr47camha9agv8iqj37.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDpQwWI9YEdufx4yFi30ByAV7R5OFS7uCA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "878713247895-89o978kta7qqrfr47camha9agv8iqj37.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
