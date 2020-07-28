@@ -44,6 +44,7 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
+                android:weightSum="1"
                 android:orientation="horizontal"
                 >
 
@@ -55,14 +56,15 @@
                     android:text="SCAN A PROBLEM"
                     android:textColor="#000000"
                     android:textSize="25dp"
-
-                    ></TextView>
+                    android:layout_weight="0.1"
+                    />
 
                 <ImageView
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:src="@drawable/scan"
-                    android:padding="15dp"></ImageView>
+                    android:padding="15dp"
+                    android:layout_weight="0.9"/>
             </LinearLayout>
         </androidx.cardview.widget.CardView>
         <androidx.cardview.widget.CardView
@@ -85,13 +87,13 @@
                     android:text="CALCULATOR"
                     android:textSize="25dp"
                     android:textColor="#000000"
-                    ></TextView>
+                    />
 
                 <ImageView
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
 
-                    android:padding="15dp"></ImageView>
+                    android:padding="15dp"/>
             </LinearLayout>
         </androidx.cardview.widget.CardView>
         <androidx.cardview.widget.CardView
@@ -114,13 +116,13 @@
                     android:text="CURRENCY CONVERTER"
                     android:textSize="25dp"
                     android:textColor="#000000"
-                    ></TextView>
+                    />
 
                 <ImageView
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:src="@drawable/currency"
-                    android:padding="15dp"></ImageView>
+                    android:padding="15dp"/>
             </LinearLayout>
         </androidx.cardview.widget.CardView>
         <androidx.cardview.widget.CardView
@@ -143,13 +145,12 @@
                     android:text="UNIT CONVERTER"
                     android:textSize="25dp"
                     android:textColor="#000000"
-                    ></TextView>
+                    />
 
                 <ImageView
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-
-                    android:padding="15dp"></ImageView>
+                    android:padding="15dp"/>
             </LinearLayout>
         </androidx.cardview.widget.CardView>
 

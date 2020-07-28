@@ -1,10 +1,15 @@
 package org.electromob.calculator;
 
 public class Users {
-    private String username;
-    private String email;
+    public String username;
+    public String email;
 
     public Users() {
+    }
+
+    public Users(String username, String email) {
+        this.username = username;
+        this.email = email;
     }
 
     public String getUsername() {

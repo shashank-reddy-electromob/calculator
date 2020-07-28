@@ -15,6 +15,22 @@
       },
       "oauth_client": [
         {
+          "client_id": "878713247895-uv1spfoprf8j2e9vkg34od7s0th32f95.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "org.electromob.calculator",
+            "certificate_hash": "6cba4f4fee29eeff832f9dbcc095dfd3ce00a61c"
+          }
+        },
+        {
+          "client_id": "878713247895-jtijtko87p2rc4fevoa1rpg4qqmh128j.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "org.electromob.calculator",
+            "certificate_hash": "c0510b4ae8cc8cb3162b9227d286878318a004e0"
+          }
+        },
+        {
           "client_id": "878713247895-89o978kta7qqrfr47camha9agv8iqj37.apps.googleusercontent.com",
           "client_type": 3
         }

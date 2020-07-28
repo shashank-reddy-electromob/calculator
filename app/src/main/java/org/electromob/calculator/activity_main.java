@@ -23,7 +23,6 @@ public class activity_main extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         ImageView menu=findViewById(R.id.menu);
-
         CardView scancard = findViewById(R.id.scancard);
         CardView calcicard = findViewById(R.id.calcicard);
         CardView currencycard = findViewById(R.id.currencycard);

@@ -17,6 +17,7 @@ import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.firestore.DocumentReference;
@@ -31,10 +32,11 @@ public class registeractivity extends AppCompatActivity {
     private Button mregister;
     private EditText musername,memail,mpassword;
     private FirebaseAuth fAuth;
+    private FirebaseUser firebaseUser;
     private FirebaseDatabase fStore;
     private DatabaseReference db;
+    String mail,name;
     String uId;
-    Users users;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -43,12 +45,11 @@ public class registeractivity extends AppCompatActivity {
         fAuth = FirebaseAuth.getInstance();
 
 
-        Button mregister= findViewById(R.id.button4);
-        final EditText musername=findViewById(R.id.editText3);
-        final EditText memail=findViewById(R.id.editText6);
-        final EditText mpassword=findViewById(R.id.editText7);
+        mregister= findViewById(R.id.button4);
+        musername=findViewById(R.id.editText3);
+        memail=findViewById(R.id.editText6);
+        mpassword=findViewById(R.id.editText7);
 
-        users=new Users();
 
         if(fAuth.getCurrentUser() != null){
             startActivity(new Intent(getApplicationContext(),activity_main.class));
@@ -61,9 +62,8 @@ public class registeractivity extends AppCompatActivity {
 
                 fStore = FirebaseDatabase.getInstance();
                 db = fStore.getReference("users");
-                db.setValue(" mahesh raj");
-                final String mail=memail.getText().toString().trim();
-                final String name=musername.getText().toString();
+                mail=memail.getText().toString().trim();
+                name=musername.getText().toString();
                 String pass=mpassword.getText().toString().trim();
 
                 if(TextUtils.isEmpty(mail)){
@@ -85,11 +85,9 @@ public class registeractivity extends AppCompatActivity {
                 fAuth.createUserWithEmailAndPassword(mail,pass).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
-                        if(task.isSuccessful()){
-                            Toast.makeText(registeractivity.this,"user created",Toast.LENGTH_SHORT).show();
-
-
-                            startActivity(new Intent(getApplicationContext(),activity_main.class));
+                        if(task.isSuccessful()) {
+                            Toast.makeText(registeractivity.this, "user created", Toast.LENGTH_SHORT).show();
+                            sendemail();
                         }else {
                             Toast.makeText(registeractivity.this,"Error:"+task.getException().getMessage(),Toast.LENGTH_SHORT).show();
                         }
@@ -98,4 +96,31 @@ public class registeractivity extends AppCompatActivity {
             }
         });
     }
+
+    private void sendemail() {
+        firebaseUser = fAuth.getCurrentUser();
+        if (firebaseUser != null) {
+            firebaseUser.sendEmailVerification().addOnCompleteListener(new OnCompleteListener<Void>() {
+                @Override
+                public void onComplete(@NonNull Task<Void> task) {
+                    if (task.isSuccessful()) {
+                        db = db.child(name);
+                        Users userinfo;
+                        userinfo = new Users(mail,name);
+                        db.setValue(userinfo);
+                        Toast.makeText(getApplicationContext(), "Successfully registered, verification mail has been sent", Toast.LENGTH_LONG).show();
+                        fAuth.signOut();
+                        finish();
+                        startActivity(new Intent(getApplicationContext(), activity_welcome.class));
+                        finish();
+                    } else {
+                        musername.setText(null);
+                        memail.setText(null);
+                        Toast.makeText(getApplicationContext(), "Verification mail failed to send, try after sometime", Toast.LENGTH_LONG).show();
+                    }
+                }
+            });
+        }
+    }
+
 }

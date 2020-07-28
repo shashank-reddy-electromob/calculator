@@ -27,7 +27,7 @@
             android:layout_marginTop="10dp"
             android:layout_marginLeft="50dp"
             android:padding="15dp"
-            ></TextView>
+            />
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -38,7 +38,7 @@
             android:textSize="20dp"
             android:layout_marginLeft="10dp"
             android:padding="10dp"
-            ></TextView>
+            />
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -73,11 +73,12 @@
                 android:layout_height="wrap_content"
                 android:layout_toRightOf="@id/drop1"
                 android:hint="enter amount"
+                android:inputType="numberDecimal"
                 android:layout_marginTop="20dp"
                 android:textColorHint="#ffffff"
                 android:textColor="#FFFFFF"
                 android:textSize="25dp"
-                android:layout_marginLeft="30dp"></android.inputmethodservice.ExtractEditText>
+                android:layout_marginLeft="30dp"/>
 
         </LinearLayout>
         <RelativeLayout
@@ -95,7 +96,7 @@
                 android:id="@+id/toTV"
                 android:layout_marginLeft="10dp"
                 android:padding="10dp"
-                ></TextView>
+                />
 
             <LinearLayout
                 android:id="@+id/toLL"
