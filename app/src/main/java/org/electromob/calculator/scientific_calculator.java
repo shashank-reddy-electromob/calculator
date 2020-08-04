@@ -152,7 +152,7 @@ public class scientific_calculator extends AppCompatActivity {
                 else {
                     val1 = Float.parseFloat(input.getText() + "");
                     add = true;
-                    input.setText(null);
+                    input.setText(input.getText()+"+");
                 }
             }
         });
@@ -165,7 +165,7 @@ public class scientific_calculator extends AppCompatActivity {
                 else {
                     val1 = Float.parseFloat(input.getText() + "");
                     sub = true;
-                    input.setText(null);
+                    input.setText(input.getText()+"-");
                 }
             }
         });
@@ -178,7 +178,7 @@ public class scientific_calculator extends AppCompatActivity {
                 else {
                     val1 = Float.parseFloat(input.getText() + "");
                     mul = true;
-                    input.setText(null);
+                    input.setText(input.getText()+"*");
                 }
             }
         });
@@ -191,7 +191,7 @@ public class scientific_calculator extends AppCompatActivity {
                 else {
                     val1 = Float.parseFloat(input.getText() + "");
                     div = true;
-                    input.setText(null);
+                    input.setText(input.getText()+"/");
                 }
             }
         });
