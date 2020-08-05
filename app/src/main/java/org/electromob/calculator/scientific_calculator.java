@@ -150,9 +150,9 @@ public class scientific_calculator extends AppCompatActivity {
                     input.setText("");
                 }
                 else {
-                    val1 = Float.parseFloat(input.getText() + "");
+                    val1 = Float.parseFloat(String.valueOf(input.getText()));
                     add = true;
-                    input.setText(input.getText()+"+");
+                    input.setText(null);
                 }
             }
         });
@@ -163,9 +163,9 @@ public class scientific_calculator extends AppCompatActivity {
                     input.setText("");
                 }
                 else {
-                    val1 = Float.parseFloat(input.getText() + "");
+                    val1 = Float.parseFloat(String.valueOf(input.getText()));
                     sub = true;
-                    input.setText(input.getText()+"-");
+                    input.setText(null);
                 }
             }
         });
@@ -176,9 +176,9 @@ public class scientific_calculator extends AppCompatActivity {
                     input.setText("");
                 }
                 else {
-                    val1 = Float.parseFloat(input.getText() + "");
+                    val1 = Float.parseFloat(String.valueOf(input.getText()));
                     mul = true;
-                    input.setText(input.getText()+"*");
+                    input.setText(null);
                 }
             }
         });
@@ -189,30 +189,30 @@ public class scientific_calculator extends AppCompatActivity {
                     input.setText("");
                 }
                 else {
-                    val1 = Float.parseFloat(input.getText() + "");
+                    val1 = Float.parseFloat(String.valueOf(input.getText()));
                     div = true;
-                    input.setText(input.getText()+"/");
+                    input.setText(null);
                 }
             }
         });
         button_equal.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                val2 = Float.parseFloat(input.getText() + "");
+                val2 = Float.parseFloat(String.valueOf(input.getText()));
                 input.setText(null);
                 if(add){
-                    output.setText(val1 + val2 + "");
+                    output.setText(val1 + val2 + "" );
                     add = false;
                 }
-                if(sub){
+                else if(sub){
                     output.setText(val1 - val2 + "");
                     sub = false;
                 }
-                if(mul){
+                else if(mul){
                     output.setText(val1 * val2 + "");
                     mul = false;
                 }
-                if(div){
+                else if(div){
                     output.setText(val1 / val2 + "");
                     div = false;
                 }
@@ -223,7 +223,7 @@ public class scientific_calculator extends AppCompatActivity {
             public void onClick(View v) {
                 if (input.length()!=0){
                     String s=input.getText().toString();
-                    char arr[]=s.toCharArray();
+                    char[] arr =s.toCharArray();
                     if(arr[0]=='-')
                         input.setText(s.substring(1,s.length()));
                     else
