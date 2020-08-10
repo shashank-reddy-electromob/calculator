@@ -5,20 +5,22 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.Html;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 public class scientific_calculator extends AppCompatActivity {
 
     Button ten,square,switchh;
-    Float val1,val2;
-    Boolean add,sub,mul,div;
+    Float val1,val2,temp;
+    boolean add,sub,mul,div,sqr,root,sin,cos,tan,pi;
     TextView input , output;
     Button button0,button1,button2,button3,button4,button5,button6,button7,button8,button9,button_dot;
     Button button_add , button_sub , button_mul , button_div , button_open , button_close , button_plus , button_equal , button_per , button_del;
-    Button square_root ;
+    Button square_root, button_sin, button_cos, button_tan, button_pi ;
     private String text="";
 
     @Override
@@ -50,6 +52,10 @@ public class scientific_calculator extends AppCompatActivity {
         button_per = findViewById(R.id.button15);
         button_del = findViewById(R.id.button7);
         square_root = findViewById(R.id.button37);
+        button_sin = findViewById(R.id.button32);
+        button_cos = findViewById(R.id.button34);
+        button_tan = findViewById(R.id.button35);
+        button_pi = findViewById(R.id.button33);
 
         ten = findViewById(R.id.button9);
         ten.setText(Html.fromHtml("10<sup>x</sup>"));
@@ -163,7 +169,13 @@ public class scientific_calculator extends AppCompatActivity {
                     input.setText("");
                 }
                 else {
-                    val1 = Float.parseFloat(String.valueOf(input.getText()));
+                    if(pi){
+                        val1 = Float.parseFloat(String.valueOf(Math.PI));
+                        pi=false;
+                    }
+                    else {
+                        val1 = Float.parseFloat(String.valueOf(input.getText()));
+                    }
                     sub = true;
                     input.setText(null);
                 }
@@ -176,7 +188,13 @@ public class scientific_calculator extends AppCompatActivity {
                     input.setText("");
                 }
                 else {
-                    val1 = Float.parseFloat(String.valueOf(input.getText()));
+                    if(pi){
+                        val1 = Float.parseFloat(String.valueOf(Math.PI));
+                        pi=false;
+                    }
+                    else {
+                        val1 = Float.parseFloat(String.valueOf(input.getText()));
+                    }
                     mul = true;
                     input.setText(null);
                 }
@@ -189,7 +207,13 @@ public class scientific_calculator extends AppCompatActivity {
                     input.setText("");
                 }
                 else {
-                    val1 = Float.parseFloat(String.valueOf(input.getText()));
+                    if(pi){
+                        val1 = Float.parseFloat(String.valueOf(Math.PI));
+                        pi=false;
+                    }
+                    else {
+                        val1 = Float.parseFloat(String.valueOf(input.getText()));
+                    }
                     div = true;
                     input.setText(null);
                 }
@@ -198,24 +222,69 @@ public class scientific_calculator extends AppCompatActivity {
         button_equal.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                val2 = Float.parseFloat(String.valueOf(input.getText()));
                 input.setText(null);
+
                 if(add){
+                    val2 = Float.parseFloat(String.valueOf(input.getText()));
                     output.setText(val1 + val2 + "" );
                     add = false;
                 }
                 else if(sub){
+                    if(pi){
+                        val2 = Float.parseFloat(String.valueOf(Math.PI));
+                        pi=false;
+                    }
+                    else {
+                        val2 = Float.parseFloat(String.valueOf(input.getText()));
+                    }
                     output.setText(val1 - val2 + "");
                     sub = false;
                 }
                 else if(mul){
+                    if(pi){
+                        val2 = Float.parseFloat(String.valueOf(Math.PI));
+                        pi=false;
+                    }
+                    else {
+                        val2 = Float.parseFloat(String.valueOf(input.getText()));
+                    }
                     output.setText(val1 * val2 + "");
                     mul = false;
                 }
                 else if(div){
+                    if(pi){
+                        val2 = Float.parseFloat(String.valueOf(Math.PI));
+                        pi=false;
+                    }
+                    else {
+                        val2 = Float.parseFloat(String.valueOf(input.getText()));
+                    }
                     output.setText(val1 / val2 + "");
                     div = false;
                 }
+                else if(root){
+                    output.setText(Math.sqrt(Double.parseDouble(text)) +"");
+                    root=false;
+                }
+                else if(sqr){
+                    output.setText((Double.parseDouble(text)*Double.parseDouble(text)) +"");
+                    sqr=false;
+                }
+                else if(sin){
+                    output.setText(Math.sin(Math.toRadians(Float.parseFloat(text))) +"");
+                    sin=false;
+                }
+                else if(cos){
+                    output.setText(Math.cos(Math.toRadians(Float.parseFloat(text))) +"");
+                    cos=false;
+                }
+                else if(tan){
+                    output.setText(Math.tan(Math.toRadians(Float.parseFloat(text))) +"");
+                    tan=false;
+                }
+
+                val1=null;
+                val2=null;
             }
         });
         button_plus.setOnClickListener(new View.OnClickListener() {
@@ -237,7 +306,7 @@ public class scientific_calculator extends AppCompatActivity {
                 if (input.length()!=0){
                     text = input.getText().toString();
                     input.setText("(" + text + ")^2");
-
+                    sqr=true;
                 }
             }
         });
@@ -245,7 +314,52 @@ public class scientific_calculator extends AppCompatActivity {
         square_root.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                if (input.length() != 0) {
+                    text = input.getText().toString();
+                    input.setText("sqrt(" + text + ")");
+                    root=true;
+                }
+            }
+        });
 
+        button_sin.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (input.length() != 0) {
+                    text = input.getText().toString();
+                    input.setText("sin(" + text + ")");
+                    sin=true;
+                }
+            }
+        });
+
+        button_cos.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (input.length() != 0) {
+                    text = input.getText().toString();
+                    input.setText("cos(" + text + ")");
+                    cos=true;
+                }
+            }
+        });
+
+        button_tan.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (input.length() != 0) {
+                    text = input.getText().toString();
+                    input.setText("tan(" + text + ")");
+                    tan=true;
+                }
+            }
+        });
+
+        button_pi.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                input.setText("π");
+                pi = true;
             }
         });
         
