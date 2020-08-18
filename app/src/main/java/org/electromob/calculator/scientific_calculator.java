@@ -5,12 +5,10 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.Html;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
-import android.widget.Toast;
 
 public class scientific_calculator extends AppCompatActivity {
 
@@ -156,7 +154,13 @@ public class scientific_calculator extends AppCompatActivity {
                     input.setText("");
                 }
                 else {
-                    val1 = Float.parseFloat(String.valueOf(input.getText()));
+                    if(pi){
+                        val1 = Float.parseFloat(String.valueOf(Math.PI));
+                        pi=false;
+                    }
+                    else {
+                        val1 = Float.parseFloat(String.valueOf(input.getText()));
+                    }
                     add = true;
                     input.setText(null);
                 }
@@ -222,10 +226,14 @@ public class scientific_calculator extends AppCompatActivity {
         button_equal.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                input.setText(null);
-
                 if(add){
-                    val2 = Float.parseFloat(String.valueOf(input.getText()));
+                    if(pi){
+                        val2 = Float.parseFloat(String.valueOf(Math.PI));
+                        pi=false;
+                    }
+                    else {
+                        val2 = Float.parseFloat(String.valueOf(input.getText()));
+                    }
                     output.setText(val1 + val2 + "" );
                     add = false;
                 }
@@ -282,9 +290,12 @@ public class scientific_calculator extends AppCompatActivity {
                     output.setText(Math.tan(Math.toRadians(Float.parseFloat(text))) +"");
                     tan=false;
                 }
+                else if(pi){
+                    output.setText(String.valueOf(Math.PI));
+                    pi=false;
+                }
 
-                val1=null;
-                val2=null;
+                input.setText(null);
             }
         });
         button_plus.setOnClickListener(new View.OnClickListener() {
@@ -362,6 +373,12 @@ public class scientific_calculator extends AppCompatActivity {
                 pi = true;
             }
         });
-        
+
+        button_del.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                input.setText(null);
+            }
+        });
     }
 }

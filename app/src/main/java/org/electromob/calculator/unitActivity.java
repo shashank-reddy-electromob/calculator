@@ -21,7 +21,7 @@ public class unitActivity extends AppCompatActivity {
         Spinner typeunit = findViewById(R.id.typeunit);
 
         String[] mtrarray= new String[]{"centimeter","meter","decimeter","nanometer","millimeter"};
-        String[] typearray= new String[]{"Length/Distance","Mass","Temparature","Speed","Volume"};
+        String[] typearray= new String[]{"Length/Distance","Mass","Temperature","Speed","Volume"};
 
         ArrayAdapter adapter=new ArrayAdapter(this,android.R.layout.simple_spinner_item,mtrarray);
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
